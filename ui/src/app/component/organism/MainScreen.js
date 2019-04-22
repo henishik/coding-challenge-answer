@@ -31,25 +31,25 @@ class Main extends Component {
                     {
                         this.props.reports.map((report) => {
                             return (
-                                <div className="reports_box" style={{ display: "flex", height: 80 }}>
-                                    <div>
-                                        <div>id: {report['id']}</div>
-                                        <div>state: {report['state']}</div>
-                                        <div>Details</div>
+                                <div className="reports__box" style={{ display: "flex", height: 80 }}>
+                                    <div className="reports__box__item__large">
+                                        <div className="reports__box__row">id: {report['id']}</div>
+                                        <div className="reports__box__row">state: {report['state']}</div>
+                                        <div className="reports__box__row"><a href="#" onClick={() => console.log("routing function")}>Details</a></div>
                                     </div>
-                                    <div>
-                                        <div>Type: Spam</div>
-                                        <div>Message: Some Messages ...</div>
+                                    <div className="reports__box__item__large">
+                                        <div className="reports__box__row">Type: Spam</div>
+                                        <div className="reports__box__row">Message: Some Messages ...</div>
                                     </div>
-                                    <div>
-                                        <div>
-                                            <button onClick={() => {
+                                    <div className="reports__box__item">
+                                        <div className="reports__box__row">
+                                            <button className="reports__box__item__button" onClick={() => {
                                                 this.props.blockReport(report['id'])
                                                 this.forceUpdate()
                                             }}>Block</button>
                                         </div>
-                                        <div>
-                                            <button onClick={() => {
+                                        <div className="reports__box__row">
+                                            <button className="reports__box__item__button" onClick={() => {
                                                 this.props.resolveReport(report['id'])
                                                 this.forceUpdate()
                                             }}>Resolve</button>
