@@ -26,7 +26,7 @@ class Main extends Component {
     render() {
         return (
             <div className="reports">
-                <h2>REPORTS (OPEN)</h2>
+                <h2>Report</h2>
                 <ul>
                     {
                         this.props.reports.map((report) => {
@@ -38,8 +38,8 @@ class Main extends Component {
                                         <div className="reports__box__row"><a href="#" onClick={() => console.log("routing function")}>Details</a></div>
                                     </div>
                                     <div className="reports__box__item__large">
-                                        <div className="reports__box__row">Type: Spam</div>
-                                        <div className="reports__box__row">Message: Some Messages ...</div>
+                                        <div className="reports__box__row">Type: {report['payload']['reportType']}</div>
+                                        <div className="reports__box__row">Message: {report['payload']['message']}</div>
                                     </div>
                                     <div className="reports__box__item">
                                         <div className="reports__box__row">

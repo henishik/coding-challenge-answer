@@ -10,7 +10,7 @@ class rootContainer extends Component {
         return (
             <div className="rootContainer">
                 <div className="rootContainer__sidebar">
-                    <h1 className="rootContainer__sidebar__logo">DASHBOARD</h1>
+                    <h1 className="rootContainer__sidebar__logo">Spam Report Dashboard</h1>
                 </div>
                 <div className="rootContainer__main">
                     {this.props.children}

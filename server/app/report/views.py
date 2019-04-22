@@ -17,11 +17,11 @@ class FetchList(View):
             "state": report.status,
             "payload": {
                 "source": "REPORT",
-                "reportType": "SPAM",
+                "reportType": report.report_type,
                 "message": "",
                 "reportId": "",
             },
-            "created": "2017-10-02T16:09:04.258Z"
+            "created": report.created_at
         })
 
         return JsonResponse(json_to_response, safe=False)
