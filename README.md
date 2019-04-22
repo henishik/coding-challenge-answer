@@ -7,13 +7,13 @@ This repository is an answer to a given example full-stack challenge which consi
 **Pre Requirements**
 
 * latest `node` is installed properly
-* `docker` is installe properlyd
+* `docker` is installed properly
 
 **Process**
 
 1. Clone repository `git clone git@github.com:tatsuya-iskw/coding-challenge-answer.git`
 
-2. server app
+2. Build docker image and run server app on a docker
 
 ```
 $ cd/coding-challenge-ansewr/server
@@ -21,7 +21,7 @@ $ docker-compose build --no-cache
 $ docker-compose up
 ```
 
-3. ui app
+3. Install dependencies and run ui app on a local node dev server
 
 ```
 $ cd/coding-challenge-ansewr/ui
@@ -34,15 +34,15 @@ $ open http://localhost:9911
 
 **UI**
 
-* `ECMASCript6` for basic logic
-* `React` for View Implementation
-* `Redux` for App State(Model/Controller) management
+* `ECMASCript` for basic logics
+* `React` for view implementation
+* `Redux` for app state(Model/Controller) management
 
 **Server**
 
-* `Python/Django` for a base-line api framework
+* `Python/Django` for a baseline web-framework
 * `Sqlite` for a light-weight data persistent
-* `Nginx/uWSGI` for a quick web server contained by `docker`
+* `Nginx/uWSGI` for a quick web server
 
 ## App Structure
 
@@ -126,9 +126,9 @@ $ open http://localhost:9911
 
 ## Notes
 
-* Simplified a data structure since I'm not sure some relations
-* Since this is a prototype, I used my personal boiler-plate project to bootstrap fundamental structure
-* Aimed and focus on functional implementation in a give time, therefoere some factors are ignored such as for examples:
-  * no usage on css framework in ui app (such as material-ui)
-  * ignored CROS (turn off general CROS functions in server side)
-  * no usage on REST framework in server app for business logic serialization, rather pure business logic implementation
+* Used personal minimum boiler-plate project to bootstrap fundamental structure in both side
+* In general, focus on functional implementation in a give time, therefoere some factors are ignored such as:
+  * No usage on css framework in ui app (such as material-ui)
+  * Business logics in server are built by pure django functions (No Django REST-Framework)
+  * Turn off general CROS check functions in server side
+  * Simplified a data structure based on a give data structure
