@@ -19,6 +19,7 @@ This repository is an answer to a given example full-stack challenge which consi
 $ cd/coding-challenge-ansewr/server
 $ docker-compose build --no-cache
 $ docker-compose up
+$ (open http://localhost:9980) // If you need to see a raw json response
 ```
 
 3. Install dependencies and run ui app on a local node dev server
