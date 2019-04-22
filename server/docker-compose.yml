@@ -1,0 +1,13 @@
+version: '2'
+services:
+  name-python-django:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: name-python-django
+    container_name: name-python-django
+    volumes:
+    - ./app:/home/docker/code/app/
+    ports:
+    - "9980:80"
+    - "9988:8888"
