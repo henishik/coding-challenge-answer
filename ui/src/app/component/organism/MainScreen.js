@@ -34,7 +34,11 @@ class Main extends Component {
                                 <div className="reports__box" style={{ display: "flex", height: 80 }}>
                                     <div className="reports__box__item__large">
                                         <div className="reports__box__row">id: {report['id']}</div>
-                                        <div className="reports__box__row">state: {report['state']}</div>
+                                        <div className="reports__box__row">
+                                            state: <span className={"reports__box__status__" + report['state']}>
+                                                {report['state']}
+                                            </span>
+                                        </div>
                                         <div className="reports__box__row"><a href="#" onClick={() => console.log("routing function")}>Details</a></div>
                                     </div>
                                     <div className="reports__box__item__large">

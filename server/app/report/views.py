@@ -29,8 +29,6 @@ class FetchList(View):
 @csrf_exempt
 def report_handler(request, reference_id=""):
     if request.method == "PUT":
-        print (reference_id)
-
         body = json.loads(request.body)
         status = body['target_status']
 
