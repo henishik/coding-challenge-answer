@@ -5,6 +5,7 @@ import rootReducer from './reducers';
 
 export default function configureStore() {
     const initialState = {
+        reports: []
     };
 
     return createStore(
