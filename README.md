@@ -25,7 +25,7 @@ $ (open http://localhost:9980/reports) // If you need to see a raw json response
 3. Install dependencies and run ui app on a local node dev server
 
 ```
-$ cd/coding-challenge-ansewr/ui
+$ cd ./coding-challenge-answer/ui
 $ npm install
 $ node bin/dev-server
 $ open http://localhost:9911
