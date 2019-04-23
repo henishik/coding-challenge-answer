@@ -6,7 +6,7 @@ This repository is an answer to a given example full-stack challenge which consi
 
 **Pre Requirements**
 
-* latest `node` is installed properly
+* latest `node` and `npm` is installed properly
 * `docker` is installed properly
 
 **Process**
@@ -16,10 +16,10 @@ This repository is an answer to a given example full-stack challenge which consi
 2. Build docker image and run server app on a docker
 
 ```
-$ cd/coding-challenge-ansewr/server
+$ cd ./coding-challenge-answer/server
 $ docker-compose build --no-cache
 $ docker-compose up
-$ (open http://localhost:9980) // If you need to see a raw json response
+$ (open http://localhost:9980/reports) // If you need to see a raw json response
 ```
 
 3. Install dependencies and run ui app on a local node dev server
