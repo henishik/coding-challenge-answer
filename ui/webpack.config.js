@@ -1,63 +1,33 @@
-var webpack = require('webpack');
-var path = require('path');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
 
-module.exports = {
-  debug: true,
-  devtool: 'eval',
-  /**
-   * # Entry definitions -------------------------------------------------------
-   * @fiename
-   * @path
-   * @publicPath
-   */
+module.exports = require('./webpack.base.babel')({
+  mode: 'development',
   entry: [
-    'webpack-dev-server/client?http://localhost:9911',
-    'webpack/hot/only-dev-server',
-    './src/app/index.js'
+    'eventsource-polyfill',
+    'webpack-hot-middleware/client?reload=true',
+    path.join(process.cwd(), 'src/app/index.js')
   ],
-
-  /**
-   * # Output definitions ------------------------------------------------------
-   * @fiename
-   * @path
-   * @publicPath
-   */
   output: {
     path: path.join(__dirname, 'dist/js'),
     filename: 'app.js',
     publicPath: '/static/'
   },
-
-  /**
-   * # Resolve definitions ------------------------------------------------------
-   * @extensions
-   */
-  resolve: {
-    extensions: ['', '.jsx', '.js', '.tsx', '.ts']
-  },
-
-  module: {
-    loaders: [{
-      test: /\.js?$/,
-      exclude: /node_modules/,
-      loaders: ['babel']
-    },
-    {
-      test: /\.scss$/,
-      loaders: ['style', 'css?sourceMap', 'sass?sourceMap']
-    },
-    {
-      test: /\.png?$/,
-      loader: 'file-loader'
-    },
-    {
-      test: /\.svg$/,
-      loader: 'svg-sprite'
-    }]
-  },
-
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: 'src/app/index.html'
+    }),
+    new CircularDependencyPlugin({
+      exclude: /a\.js|node_modules/,
+      failOnError: false
+    })
   ],
-};
+  devtool: 'eval-source-map',
+  performance: {
+    hints: false
+  }
+});
