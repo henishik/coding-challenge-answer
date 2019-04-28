@@ -8,7 +8,7 @@ export const fetchInitialData = () => dispatch => {
             return (dispatch(
                 {
                     type: RECIEVE_INITIAL_DATA,
-                    data: json.reports
+                    data: json
                 }))
         })
 };
@@ -19,7 +19,6 @@ export const blockReport = (id) => dispatch => {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            reference_id: id,
             target_status: "BLOCK"
         }),
     })
@@ -39,7 +38,6 @@ export const resolveReport = (id) => dispatch => {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            reference_id: id,
             target_status: 'RESOLVE'
         }),
     })
