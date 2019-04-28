@@ -1,7 +1,15 @@
-from django.conf.urls import  url
-from .views import  FetchList, report_handler
+from django.conf.urls import url
+from .views import report_handler, get_post_reports
 
 urlpatterns = [
-    url(r'^$', FetchList.as_view(), name='fetch-view'),
-    url(r'^(?P<reference_id>[-\w]+)/$', report_handler),
+    url(
+        r'^$',
+        get_post_reports,
+        name='get_post_reports'
+    ),
+    url(
+        r'^(?P<reference_id>[-\w]+)/$',
+        report_handler,
+        name='report_handler'
+    )
 ]

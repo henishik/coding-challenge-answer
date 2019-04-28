@@ -4,27 +4,10 @@ from django.http import QueryDict, JsonResponse, HttpResponse
 from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 from .models import Report
-
-class FetchList(View):
-    def get(self, request, *args, **kwargs):
-        all_reports = Report.objects.all()
-        json_to_response = {"reports": []}
-
-        for report in all_reports:
-            json_to_response["reports"].append({
-            "id": report.reference_id,
-            "source": "REPORT",
-            "state": report.status,
-            "payload": {
-                "source": "REPORT",
-                "reportType": report.report_type,
-                "message": "",
-                "reportId": "",
-            },
-            "created": report.created_at
-        })
-
-        return JsonResponse(json_to_response, safe=False)
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import ReportSerializer
 
 @csrf_exempt
 def report_handler(request, reference_id=""):
@@ -41,3 +24,13 @@ def report_handler(request, reference_id=""):
         r.save()
 
         return JsonResponse({"reference_id": r.status}, safe=False)
+
+@api_view(['GET', 'POST'])
+def get_post_reports(request):
+    if request.method == 'GET':
+        reports = Report.objects.all()
+        serializer = ReportSerializer(reports, many=True)
+
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        return Response({})
