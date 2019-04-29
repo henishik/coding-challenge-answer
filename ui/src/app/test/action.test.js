@@ -12,7 +12,7 @@ import expect from 'expect'
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-describe('Home Actions', () => {
+describe('Report Actions', () => {
     afterEach(() => {
         fetchMock.restore()
     })
