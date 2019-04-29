@@ -1,0 +1,40 @@
+.
+├── Dockerfile
+├── app
+│   ├── db.sqlite3
+│   ├── manage.py
+│   ├── project
+│   │   ├── __init__.py
+│   │   ├── settings.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── report
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── initial_data
+│   │   │   ├── __init__.py
+│   │   │   ├── is_data_initialized.txt
+│   │   │   └── reports.py
+│   │   ├── migrations
+│   │   │   ├── 0001_initial.py
+│   │   │   └── __init__.py
+│   │   ├── models.py
+│   │   ├── populate_data_from_docker_build.py
+│   │   ├── serializers.py
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   └── requirements.txt
+├── conf
+│   ├── nginx-app.conf
+│   └── supervisor-app.conf
+├── docker-compose.yml
+├── docker-scripts
+│   ├── django-migrate.sh
+│   ├── initialize-data.sh
+│   └── start.sh
+├── uwsgi.ini
+└── uwsgi_params
+
+7 directories, 30 files

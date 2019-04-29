@@ -1,0 +1,35 @@
+.
+├── babel.config.js
+├── bin
+│   └── dev-server.js
+├── dist
+│   └── index.html
+├── jest.config.js
+├── package-lock.json
+├── package.json
+├── src
+│   ├── app
+│   │   ├── action
+│   │   │   └── index.js
+│   │   ├── component
+│   │   │   └── organism
+│   │   │       ├── MainScreen.js
+│   │   │       └── rootContainer.js
+│   │   ├── configureStore.js
+│   │   ├── index.html
+│   │   ├── index.js
+│   │   ├── reducers
+│   │   │   └── index.js
+│   │   └── test
+│   │       ├── action.test.js
+│   │       └── reducer.test.js
+│   └── sass
+│       ├── component
+│       │   └── organism
+│       │       ├── mainScreen.scss
+│       │       └── rootContainer.scss
+│       └── main.scss
+├── webpack.base.babel.js
+└── webpack.config.js
+
+12 directories, 20 files
