@@ -1,5 +1,5 @@
 import reducer from '../reducers/index';
-import { RECIEVE_INITIAL_DATA, BLOCK_REPORT, RESOLVE_REPORT } from '../action/index';
+import { RECIEVE_INITIAL_DATA, UPDATE_REPORT_STATE } from '../action/index';
 
 const givenState = {
     reports: [],
@@ -40,14 +40,7 @@ describe('A Test Suite on report reducer', () => {
     it('BLOCK_REPORT: should not affect any state change', () => {
         expect(reducer(
             givenState,
-            { type: BLOCK_REPORT })
-        ).toEqual(givenState);
-    });
-
-    it('RESOLVE_REPORT: should not affect any state change', () => {
-        expect(reducer(
-            givenState,
-            { type: RESOLVE_REPORT })
+            { type: UPDATE_REPORT_STATE })
         ).toEqual(givenState);
     });
 });

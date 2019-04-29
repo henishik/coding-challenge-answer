@@ -1,10 +1,8 @@
 import {
     fetchInitialData,
-    blockReport,
-    resolveReport,
+    updateReportState,
     RECIEVE_INITIAL_DATA,
-    BLOCK_REPORT,
-    RESOLVE_REPORT
+    UPDATE_REPORT_STATE
 } from '../action/index';
 
 import configureMockStore from 'redux-mock-store'
@@ -36,25 +34,15 @@ describe('Home Actions', () => {
 
     it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
         const expectedActions = [
-            BLOCK_REPORT
+            UPDATE_REPORT_STATE
         ]
 
         fetchMock.get('/fetch-reports-uri', { response: 200 })
         const store = mockStore({})
-        return store.dispatch(blockReport("0103e005-b762-485f-8f7e-722019d4f302")).then(() => {
-            const actualActions = store.getActions().map(action => action.type)
-            expect(actualActions).toEqual(expectedActions)
-        })
-    })
-
-    it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
-        const expectedActions = [
-            RESOLVE_REPORT
-        ]
-
-        fetchMock.get('/fetch-reports-uri', { response: 200 })
-        const store = mockStore({})
-        return store.dispatch(resolveReport("0103e005-b762-485f-8f7e-722019d4f302")).then(() => {
+        return store.dispatch(updateReportState(
+            "0103e005-b762-485f-8f7e-722019d4f302",
+            { "ticketState": "CLOSED" })
+        ).then(() => {
             const actualActions = store.getActions().map(action => action.type)
             expect(actualActions).toEqual(expectedActions)
         })

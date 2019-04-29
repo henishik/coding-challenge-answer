@@ -13,39 +13,18 @@ export const fetchInitialData = () => dispatch => {
         })
 };
 
-export const BLOCK_REPORT = 'BLOCK_REPORT';
-export const blockReport = (id) => dispatch => {
+export const UPDATE_REPORT_STATE = 'UPDATE_REPORT_STATE';
+export const updateReportState = (id, payload) => dispatch => {
     return fetch('http://localhost:9980/reports/' + id + '/', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            target_status: "BLOCK"
-        }),
+        body: JSON.stringify(payload),
     })
         .then(response => response.json())
         .then(json => {
             dispatch({
-                type: BLOCK_REPORT
+                type: UPDATE_REPORT_STATE 
             })
-            dispatch(fetchInitialData())
-        });
-};
-
-export const RESOLVE_REPORT = 'RESOLVE_REPORT';
-export const resolveReport = (id) => dispatch => {
-    return fetch('http://localhost:9980/reports/' + id + '/', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            target_status: 'RESOLVE'
-        }),
-    })
-        .then(response => response.json())
-        .then(json => {
-            dispatch({
-                type: RESOLVE_REPORT
-            })
-
             dispatch(fetchInitialData())
         });
 };

@@ -1,4 +1,4 @@
-import { RECIEVE_INITIAL_DATA, RESOLVE_REPORT, BLOCK_REPORT } from '../action';
+import { RECIEVE_INITIAL_DATA, UPDATE_REPORT_STATE } from '../action';
 import { combineReducers } from 'redux';
 const { routerReducer } = require('react-router-redux');
 
@@ -7,9 +7,7 @@ function reports(state = {}, action) {
         case RECIEVE_INITIAL_DATA:
             let nextState = action.data
             return nextState;
-        case RESOLVE_REPORT:
-            return state;
-        case BLOCK_REPORT:
+        case UPDATE_REPORT_STATE:
             return state;
         default:
             return state;

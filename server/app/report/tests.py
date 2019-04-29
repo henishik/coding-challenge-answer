@@ -55,7 +55,7 @@ class ResolveReportTest(TestCase):
             message="",
             source="",
             report_type="")
-        self.valid_payload = {"target_status": 'RESOLVE'}
+        self.valid_payload = {"ticketState": "CLOSED"}
         self.in_valid_payload = {}
 
     # VALID PUT REQUEST
