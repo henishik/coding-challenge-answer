@@ -1,0 +1,29 @@
+.reportListCell {
+  max-width: 800px;
+  padding: 4px;
+  border: 1px solid #000;
+
+  &__item {
+    &__large {
+      flex: 1;
+    }
+
+    &__button {
+      width: 100px;
+    }
+  }
+
+  &__status__OPEN {
+    color: blue;
+  }
+  &__status__RESOLVE {
+    color: green;
+  }
+  &__status__BLOCK {
+    color: red;
+  }
+
+  &__row {
+    padding-bottom: 4px;
+  }
+}
