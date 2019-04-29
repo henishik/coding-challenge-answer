@@ -2,7 +2,20 @@
 
 This repository is an answer to a given example full-stack challenge which consists of both UI app and server api app.
 
-## How to run
+## UPDATE (29.04.19)
+
+Here three things to be changed based on initial feedbacks from Mr.Joseph.
+
+### 1. General Requirements
+
+### 2. Unit-Tests
+
+* Find all of [test cases in server side](./server/app/report/tests.py)
+* Find all of [test cases in UI side](./server/app/report/tests.py)
+
+### 3. General Code Cleaning
+
+## how to run
 
 **Pre Requirements**
 
