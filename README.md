@@ -15,26 +15,26 @@ Fixed some misunderstanding on general acceptance criterias.
 
 ### 2. Unit-Tests
 
-Added unit-tests structure in both server and UI.
+Added missing unit-tests structure in both server and UI.
 
 **Server**
 
-* [API views](./server/app/report/tests.py)
+* [Tests on API views](./server/app/report/tests.py)
 * [Coverage Sample](./docs/res/coverage_matrix_server.png)
 
 **UI**
 
-* [Action](./ui/src/app/test/action.test.js)
-* [Reducer](./ui/src/app/test/reducer.test.js)
+* [Tests on Actions](./ui/src/app/test/action.test.js)
+* [Tests on Reducers](./ui/src/app/test/reducer.test.js)
 * [Coverage Sample](./docs/res/coverage_matrix_ui.png)
 
 ### 3. General Code Cleaning
 
-Clean-up source-codes by deleting unnecessary comments.
+Cleaned-up source-codes by deleting unnecessary comments and tidying-up project structure.
 
 ## NPM commands
 
-There are various commands available via NPM for use during development and to create a new release via [ui package.json](./package.json)
+Some commands available via NPM to help druing developments [ui package.json](./ui/package.json)
 
 **UI**
 
