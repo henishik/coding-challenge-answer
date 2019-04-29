@@ -1,7 +1,3 @@
-/**
- * COMMON WEBPACK CONFIGURATION
- */
-
 const path = require('path');
 const webpack = require('webpack');
 
@@ -12,16 +8,15 @@ module.exports = (options) => ({
   entry: options.entry,
   output: Object.assign(
     {
-      // Compile into js/build.js
       path: path.resolve(process.cwd(), 'build'),
       publicPath: '/'
     },
     options.output
-  ), // Merge with env dependent settings
+  ),
   module: {
     rules: [
       {
-        test: /\.js$/, // Transform all .js files required somewhere with Babel
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -29,13 +24,11 @@ module.exports = (options) => ({
         }
       },
       {
-        // Preprocess our own .scss files
         test: /\.scss$/,
         exclude: /node_modules/,
         use: ['style-loader', 'css-loader', 'sass-loader']
       },
       {
-        // Preprocess 3rd party .css files located in node_modules
         test: /\.css$/,
         include: /node_modules/,
         use: ['style-loader', 'css-loader']
@@ -65,13 +58,8 @@ module.exports = (options) => ({
   },
   plugins: options.plugins.concat([
     new webpack.ProvidePlugin({
-      // make fetch available
       fetch: 'exports-loader?self.fetch!whatwg-fetch'
     }),
-
-    // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
-    // inside your code for any environment checks; UglifyJS will automatically
-    // drop any unreachable code.
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV)
@@ -84,7 +72,7 @@ module.exports = (options) => ({
     mainFields: ['browser', 'jsnext:main', 'main']
   },
   devtool: options.devtool,
-  target: 'web', // Make web variables accessible to webpack, e.g. window
+  target: 'web',
   performance: options.performance || {},
   optimization: {
     namedModules: true,
