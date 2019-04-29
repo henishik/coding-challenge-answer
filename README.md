@@ -10,8 +10,17 @@ Here three things to be changed based on initial feedbacks from Mr.Joseph.
 
 ### 2. Unit-Tests
 
+**Server**
+
 * Find all of [test cases in server side](./server/app/report/tests.py)
-* Find all of [test cases in UI side](./server/app/report/tests.py)
+
+<img src="./docs/res/coverage_matrix_server.png" width=300>
+
+**UI**
+
+* Find all of [test cases in UI side](./ui/src/app/test/)
+
+<img src="./docs/res/coverage_matrix_ui.png" width=300>
 
 ### 3. General Code Cleaning
 
@@ -146,3 +155,8 @@ $ open http://localhost:9911
   * Business logics in server are built by pure django functions (No Django REST-Framework)
   * Turn off general CROS check functions in server side
   * Simplified a data structure based on a give data structure
+
+## Things Noticed (After Notes on 29.04.19)
+
+* ImmutableJS for reducer logic handling
+* react-saga for http request handling (also makes unit-test easier)
